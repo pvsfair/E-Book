@@ -20,6 +20,11 @@
 *.out
 *.app
 
+# Visual Studio Files
+*.vcxproj
+*.filters
+[Dd]ebug/
+
 # =========================
 # Operating System Files
 # =========================
@@ -32,8 +37,7 @@
 .LSOverride
 
 # Icon must ends with two \r.
-Icon
-
+Icon
 # Thumbnails
 ._*
 
