@@ -26,25 +26,8 @@ int main(void){
 	for (list<EBook>::iterator it = eBooks.begin(); it != eBooks.end(); ++it){
 		i++;
 		cout << "Livro Num: " << i << endl;
-		cout << '\t' << "Titulo: " << it->getTitulo() << endl;
-		cout << '\t' << "Editora: " << it->getEditora() << endl;
-		cout << '\t' << "Autor(a): " << it->getAutor() << endl;
-		cout << '\t' << "ISBN: " << it->getISBN() << endl;
-		cout << '\t' << "Paginas: " << it->getPaginas() << endl;
-		if(it->getLeitor() != "")
-			cout << '\t' << "Leitor: " << it->getLeitor() << endl;
-		else
-			cout << '\t' << "Leitor: Nenhum" << endl;
-		if(it->getListaAnotacoes().size() > 0){
 
-			cout << '\t' << "Anotacoes: " << endl;
-			for (list<Anotacao>::iterator it2 = it->getListaAnotacoes().begin(); it2 != it->getListaAnotacoes().end(); ++it2){
-				cout << "\t\t" << "Pagina: " << it2->getPagina() << endl;
-				cout << "\t\t" << "Anotacao: " << endl;
-				cout << "\t\t\t" << it2->getAnotacaoText() << endl;
-			}
-		}
-		cout << "\n\n";
+		eBook01.imprimirEBook(*it);
 	}
 	std::cout << '\n';
 

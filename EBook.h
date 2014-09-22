@@ -16,6 +16,8 @@ public:
 	bool editarAnotacao(int, string);
 	inline void editarAnotacao(Anotacao *, string);
 	void acharAnotacao(list<Anotacao> &, int, Anotacao *);
+	void imprimirEBook(EBook &) const;
+
 	int getPaginaAtual();
 	string getLeitor();
 	list<Anotacao>& getListaAnotacoes();

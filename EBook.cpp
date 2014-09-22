@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 #include "EBook.h"
 #include "Anotacao.h"
@@ -36,7 +37,7 @@ bool EBook::editarAnotacao(int id, string texto)
 	}
 	else
 	{
-		Anotacao *anotTemp;
+		Anotacao *anotTemp = new Anotacao();
 		acharAnotacao(listaAnotacoes, id, anotTemp);
 		this->editarAnotacao(anotTemp, texto);
 
@@ -55,6 +56,26 @@ void EBook::acharAnotacao(list<Anotacao> &lista, int id, Anotacao *anot)
 	it = lista.begin();
 	for (int i = 0; i < id; i++) it++;
 	*anot = *it;
+}
+
+void EBook::imprimirEBook(EBook &EB) const //Se o EBook &EB fosse const da erro na linha que chama os metodos dele...
+{
+	cout << '\t' << "Titulo: " << EB.getTitulo() << endl;
+	cout << '\t' << "Editora: " << EB.getEditora() << endl;
+	cout << '\t' << "Autor(a): " << EB.getAutor() << endl;
+	cout << '\t' << "ISBN: " << EB.getISBN() << endl;
+	cout << '\t' << "Paginas: " << EB.getPaginas() << endl;
+	cout << '\t' << "Leitor: " << ((EB.getLeitor() != "") ? EB.getLeitor() : "Nenhum") << endl;
+
+	if (EB.getListaAnotacoes().size() > 0){
+		cout << '\t' << "Anotacoes: " << endl;
+		for (list<Anotacao>::iterator it = EB.getListaAnotacoes().begin(); it != EB.getListaAnotacoes().end(); ++it){
+			cout << "\t\t" << "Pagina: " << it->getPagina() << endl;
+			cout << "\t\t" << "Anotacao: " << endl;
+			cout << "\t\t\t" << it->getAnotacaoText() << endl;
+		}
+	}
+	cout << "\n\n";
 }
 
 int EBook::getPaginaAtual()
